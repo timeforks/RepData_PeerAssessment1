@@ -9,6 +9,7 @@ This files gives explanations of how the code works.
 Read the file. Then make a histogram of the total number of steps taken each day by "hist" function. 
 
 ```r
+setwd("C:/Users/lenovo/Documents")
 activity <- read.csv("activity.csv")
 num <- tapply(activity$steps, activity$date, sum, na.rm=T)
 hist(num, main = "Histgram of Steps Each Day", 
@@ -23,17 +24,13 @@ Calculated the value of mean and median of the total number of steps taken per d
 mean(num)
 ```
 
-```
-## [1] 9354.23
-```
+[1] 9354.23
 
 ```r
 median(num)
 ```
 
-```
-## [1] 10395
-```
+[1] 10395
 
 Make the time series plot of the 5-minute interval and the average number of steps taken, averaged across all days.
 
@@ -54,9 +51,7 @@ averagedata <- data.frame(steps = steps, interval = interval)
 averagedata$interval[which.max(averagedata$steps)]
 ```
 
-```
-## [1] 835
-```
+[1] 835
 
 Calculate and report the total number of missing values in the dataset.
 
@@ -64,9 +59,7 @@ Calculate and report the total number of missing values in the dataset.
 sum(is.na(activity$steps))
 ```
 
-```
-## [1] 2304
-```
+[1] 2304
 
 Fill in all of the missing values in the dataset by the mean for that 5-minute interval and create a new dataset that is equal to the original dataset but with the missing data filled in.
 
@@ -92,17 +85,13 @@ Calculate and report the mean and median total number of steps taken per day
 mean(newnum)
 ```
 
-```
-## [1] 10766.19
-```
+[1] 10766.19
 
 ```r
 median(newnum)
 ```
 
-```
-## [1] 10766.19
-```
+[1] 10766.19
 The mean and median value of steps each day in the new data set has increased since the missing value is imputed. And the total number of daily steps increases.
 
 Create a new factor variable in the dataset with two levels -- "weekday" and "weekend" indicating whether a given date is a weekday or weekend day. (Since the OS of my computer is in Chinese, I use "Saturday" and "Sunday" in Chinese in my code)
